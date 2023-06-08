@@ -98,8 +98,9 @@ class WickedPdf
     Rails.logger.debug '[wicked_pdf]: ' + cmd
   end
 
-  def option_parser
-    @option_parser ||= OptionParser.new(binary_version)
+  def parse_options(options)
+    @option_parser = OptionParser.new(binary_version)
+    @option_parser.parse(options)
   end
 
   def clean_temp_files
